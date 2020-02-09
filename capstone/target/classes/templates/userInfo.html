@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<header>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/userInfo.css">
+
+</header>
+
+<body>
+    <title th:text="${#authentication.name}">'s' Profile</title>
+
+    <div class="jumbotron" id="jumbotron">
+        <h1>Welcome,</h1>
+        <h3 th:text="${appUser.userName}"></h3>
+    </div>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="">Tom's & Noble</a>
+    
+        <div class="navbar" id="mainNavBar">
+          <a class="nav-link" href="/index.html" id="navLink" value="index.html" id="home">Home </a>
+          <a class="nav-link" href="/about.html" id="navLink" value="about.html" id="about">About </a>
+          <a class="nav-link" href="/register.html" id="navLink" value="register.html" id="register">Register </a>
+          <a class="nav-link" href="/login.html" id="navLink" id="login">Login </a>
+          <a class="nav-link" href="/userInfo" id="navLink" id="profile">Your Profile</a>
+          <a class="nav-link" href="/logout" id="navLink" id="logout">Logout</a>
+        </div>
+        
+      </nav> -->
+<!--Ending div for mainNavBar-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="">Tom's & Noble</a>
+
+    <div class="navbar" id="siteStuff">
+      <a class="nav-link" href="/" id="navLink">Home </a>
+      <a class="nav-link" href="/about.html" id="navLink" value="about.html">About </a>
+    </div>
+    <div class="navbar" id="accountStuff">
+      <a class="nav-link" href="/userInfo" id="navLink" value="userInfo.html" sec:authorize="isAuthenticated()">Your Profile</a>
+      <a class="nav-link" href="/register.html" id="navLink" value="register.html">Register </a>
+      <a class="nav-link" href="/login.html" id="navLink" value="login.html">Login</a>
+      <a class="nav-link" href="/logout" id="navLink">Sign out </a>
+    </div>
+    <!--Ending div for mainNavBar-->
+  </nav>
+
+    <div class="container" id="progressBar">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%"
+                aria-valuemin="0" th:aria-valuemax="${appUser.currentLevel.requiredXP}"></div>
+        </div>
+    </div>
+    <!--Ending div for progress bar-->
+
+    <div class="container col-2 offset-1" id="userInfoSidebar">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th id="firstName">First Name</th>
+                    <td th:text="${appUser.firstName}"></td>
+                </tr>
+                <tr>
+                    <th id="lastName">Last Name</th>
+                    <td th:text="${appUser.lastName}"></td>
+                </tr>
+                <tr>
+                    
+                </tr>
+                
+                <tr >
+                    <th id="currentlyReading">Currently Reading:</th>
+                    <td th:text="${appUser.currentlyReading.title}"></td>
+                </tr>
+                    <img th:src="${appUser.currentlyReading.imageURL}" />
+                <tr>
+                    
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <!--Closing div for user info table-->
+    <div class="container col-8 offset-3" id="userMainContentWantToRead">
+        <h3>Books you want to read</h3>
+        <div class="card in-line" style="width: 150px;" th:each="book : ${appUser.wantToRead}">
+            <img class="card-img-top" th:src="${book.imageURL}" alt="book cover">
+            <div class="card-body">
+              <p class="card-text" th:text="${book.title}"></p>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="container col-8 offset-3" id="userMainContentHaveRead">
+        <h3>Books you've read</h3>
+        <div class="card in-line" style="width: 150px;" th:each="book : ${appUser.hasRead}">
+            <img class="card-img-top" th:src="${book.imageURL}" alt="book cover">
+            <div class="card-body">
+              <p class="card-text" th:text="${book.title}"></p>
+            </div>
+          </div>
+    </div>
+
+
+    <div id="scripts">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="/js/appUserInfo.js"></script>
+    </div>
+</body>
+
+</html>

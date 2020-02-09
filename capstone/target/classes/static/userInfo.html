@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<header>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/index.css">
+</header>
+
+<body>
+    <title th:text="${#authentication.name}">'s' Profile</title>
+
+    <div class="jumbotron" id="jumbotron">
+        <h1 th:text="${#authentication.name}">, welcome!</h1>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="">Tom's & Noble</a>
+    
+        <div class="navbar" id="siteStuff">
+          <a class="nav-link" href="/" id="navLink">Home </a>
+          <a class="nav-link" href="/about.html" id="navLink" value="about.html">About </a>
+        </div>
+        <div class="navbar" id="accountStuff">
+          <a class="nav-link" href="/userInfo" id="navLink" value="userInfo.html">Your Profile</a>
+          <a class="nav-link" href="/register.html" id="navLink" value="register.html">Register </a>
+          <a class="nav-link" href="/login.html" id="navLink" value="login.html">Login</a>
+          <a class="nav-link" href="/logout" id="navLink">Sign out </a>
+        </div>
+        <!--Ending div for mainNavBar-->
+      </nav>
+
+    <div class="container" id="progressBar">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%"
+                aria-valuemin="0" th:aria-valuemax="${appUser.currentLevel.requiredXP}"></div>
+        </div>
+    </div>
+    <!--Ending div for progress bar-->
+
+    <div class="container col-2 offset-1" id="userInfoSidebar">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th id="firstName">First Name</th>
+                    <td th:text="${appUser.firstName}"></td>
+                </tr>
+                <tr>
+                    <th id="lastName">Last Name</th>
+                    <td th:value="${appUser.lastName}"></td>
+                </tr>
+                <span th:if="${appUser.currentBook != null}">
+                    <tr>
+                        <th id="currentlyReading">Currently Reading:</th>
+                        <td th:text="${appUser.currentBook.title}"></td>
+                    </tr>
+                    <tr>
+                        <img th:src="${appUser.currentBook.imageURL}" th:alt="${appUser.currentBook.title} cover">
+                    </tr>
+                </span>
+            </thead>
+        </table>
+    </div>
+
+    <div class="container col-8 offset-3" id="userMainContent">
+
+    </div>
+
+
+    <div id="scripts">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="/js/appUserInfo.js"></script>
+    </div>
+</body>
+
+</html>

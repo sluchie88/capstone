@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/login.css">
+
+</head>
+
+<body>
+    <title>Login</title>
+    <div class="jumbotron">
+        <h1 class="display-3">Login</h1>
+        <hr class="my-2">
+        <p>Welcome back!</p>
+    </div>
+
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="">Tom's & Noble</a>
+
+        <div class="navbar" id="mainNavBar">
+            <a class="nav-link" href="/index.html" id="home">Home </a>
+            <a class="nav-link" href="/about.html" id="about">About </a>
+            <a class="nav-link" href="/register.html" id="register">Register </a>
+            <span sec:authorize="isAuthenticated()">
+                <a class="nav-link" href="/userInfo" id="navLink">Your Profile</a>
+            </span>
+            <span sec:authorize="isAuthenticated()">
+                <a class="nav-link" href="/logout" id="navLink">Logout</a>
+            </span>
+            <a class="nav-link" href="/login.html" id="login">Login </a>
+        </div>
+        
+    </nav> -->
+    <!--Ending div for mainNavBar-->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="">Tom's & Noble</a>
+
+        <div class="navbar" id="siteStuff">
+            <a class="nav-link" href="/" id="navLink">Home </a>
+            <a class="nav-link" href="/about.html" id="navLink" value="about.html">About </a>
+        </div>
+        <div class="navbar" id="accountStuff">
+            <a class="nav-link" href="/userInfo" id="navLink" value="userInfo.html">Your Profile</a>
+            <a class="nav-link" href="/register.html" id="navLink" value="register.html">Register </a>
+            <a class="nav-link" href="/login.html" id="navLink" value="login.html">Login</a>
+            <a class="nav-link" href="/logout" id="navLink">Sign out </a>
+        </div>
+        <!--Ending div for mainNavBar-->
+    </nav>
+    <div class="logIn">
+        <h2>Log In</h2>
+        <form id="frmLogin" method="POST" action="/login">
+            <div>
+                <label for="username">Username:</label>
+                <input name="username" id="username" placeholder="Username">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input name="password" id="password" type="password" placeholder="Password">
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="scripts">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    </div>
+</body>
+
+</html>

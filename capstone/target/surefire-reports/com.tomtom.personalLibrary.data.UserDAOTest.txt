@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.tomtom.personalLibrary.data.UserDAOTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.248 s <<< FAILURE! - in com.tomtom.personalLibrary.data.UserDAOTest
+testAddEditDeleteUser  Time elapsed: 0.243 s  <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'level' in 'field list'
+	at com.tomtom.personalLibrary.data.UserDAOTest.testAddEditDeleteUser(UserDAOTest.java:80)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'level' in 'field list'
+	at com.tomtom.personalLibrary.data.UserDAOTest.testAddEditDeleteUser(UserDAOTest.java:80)
+
+testFindUser  Time elapsed: 0.001 s  <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT username, firstName, lastName, xp, email, roleId, level FROM User WHERE username = ?;]; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'level' in 'field list'
+	at com.tomtom.personalLibrary.data.UserDAOTest.testFindUser(UserDAOTest.java:44)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'level' in 'field list'
+	at com.tomtom.personalLibrary.data.UserDAOTest.testFindUser(UserDAOTest.java:44)
+

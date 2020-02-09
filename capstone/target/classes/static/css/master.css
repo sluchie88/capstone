@@ -1,0 +1,16 @@
+/*Link to open sans font used in body and footer*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+/*Link to Oleo script used in header*/
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script&display=swap');
+
+body {
+    background-color: #EDEDE9;
+    color: #343A79;
+    font-family: 'Open Sans', sans-serif,
+}
+
+.jumbotron{
+    text-align: center;
+    font-family: 'Oleo Script', cursive;
+}

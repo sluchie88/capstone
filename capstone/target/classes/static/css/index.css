@@ -1,0 +1,8 @@
+#titleSearch, #titleSearchButton, #authorSearch, #authorSearchButton{
+    display: inline-block;
+}
+
+#results, #searchNextPrev{
+    text-align: center;
+    vertical-align: middle;
+}
